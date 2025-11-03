@@ -26,11 +26,24 @@ class Note():
         else:
             self.yaml_header = None
             self.attributes = None
-        print(self.attributes)
-        print(type(self.attributes))
         #metadata
         self.parse_attributes()
     
+    #TODO: Add support for custom attributes
+    def get_formatted_md(self):
+        md = ""
+        md += "\n---\n"
+        md+= f"title: {self.title}\n"
+        md += f"tags: {self.tags}\n"
+        md += f"created: {self.created_date}\n"
+        md += f"last_modified: {self.modified_date}\n"
+        md += f"---\n"
+        if self.yaml_header_dict and self.yaml_header_dict["frontmatter"] != "":
+            md += self.yaml_header_dict["body"]
+        else:
+            md += self.raw_md
+        return md
+
     def __eq__(self, value):
         if (type(value) == str):
             if(self.raw_md == value):
@@ -65,9 +78,9 @@ class Note():
                 elif type(created_date) == date:
                     self.created_date = datetime.combine(created_date, datetime.min.time())
                 else:
-                    self.created_date = datetime.now()
+                    self.created_date = datetime.now().replace(microsecond=0)
             else:
-                self.created_date = datetime.now()
+                self.created_date = datetime.now().replace(microsecond=0)
             #date modified
             if "last_modified" in self.attributes:
                 if type(self.attributes["last_modified"]) == datetime:
@@ -75,14 +88,14 @@ class Note():
                 elif type(self.attributes["last_modified"]) == date:
                     self.modified_date = datetime.combine(self.attributes["last_modified"], datetime.min.time())
                 else:
-                    self.modified_date = datetime.now()
+                    self.modified_date = datetime.now().replace(microsecond=0)
             else:
-                self.modified_date = datetime.now()
+                self.modified_date = datetime.now().replace(microsecond=0)
         else:
             self.tags = []
             self.title = "Untitled Note"
-            self.created_date = datetime.now()
-            self.modified_date = datetime.now()
+            self.created_date = datetime.now().replace(microsecond=0)
+            self.modified_date = datetime.now().replace(microsecond=0)
         #TODO: Support for saving other custom attributes for costimizability and support reasons
     def __repr__(self):
         return  self.__str__() +"\n" + self.raw_md 

@@ -13,6 +13,18 @@ class TestNote(unittest.TestCase):
         md = "test"
         note = Note(md)
         self.assertEqual(note,"test")
+    def test_get_formatted_md(self):
+        md = "test"
+        note = Note(md)
+        rslt = f"""
+---
+title: Untitled Note
+tags: []
+created: {datetime.now().replace(microsecond=0)}
+last_modified: {datetime.now().replace(microsecond=0)}
+---
+test"""
+        self.assertEqual(note.get_formatted_md(),rslt)
     def test_repr(self):
         md = "test"
         note = Note(md)
