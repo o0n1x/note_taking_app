@@ -6,6 +6,10 @@ from datetime import datetime , date
 
 class Note():
     
+    """
+    initalize a note object.
+    accepts input raw text from frontmatter file (md file with yaml as header)
+    """
     def __init__(self,raw_md = None):
 
         #raw text (raw_md includes header)
@@ -37,6 +41,10 @@ class Note():
         return False
 
     #TODO: make it possible so that dates can use / instead of - 
+    """
+    internal function used when initalizing a note object.
+    parses attributes dictionary for expected values: tags,title,created, and last_modified
+    """
     def parse_attributes(self):
         if self.attributes and type(self.attributes) == dict:
             #tags
