@@ -23,19 +23,20 @@ A terminal-based Note-taking app for managing Markdown files. built with Python 
 ### Option 1: Portable (Recommended for Users)
 
 1. Download the latest release: 
-    - [onyx-notes-v0.1.0-portable.zip]()
+    - [onyx-notes-v0.1.0-portable.zip](https://github.com/o0n1x/onyx-notes/releases)
 
 2. Extract the archive to your preferred location:
 
-    ```
-    unzip onyx-notes-v0.1.0-portable.zip -d onyx-notes
-    cd onyx-notes
-    ```
+```
+unzip onyx-notes-v0.1.0-portable.zip -d onyx-notes
+cd onyx-notes
+```
 3. Navigate to the extracted folder and run:
-    ```
-    ./start.sh   # Linux/Mac
-    start.bat    # Windows
-    ```
+
+```
+./start.sh   # Linux/Mac
+start.bat    # Windows
+```
 
 ### Option 2: From Source (For Developers)
 
