@@ -1,0 +1,2 @@
+frontmatter>=3.0.8
+textual[syntax]>=0.47.0

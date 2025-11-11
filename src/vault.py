@@ -3,7 +3,6 @@
 from note_io import *
 from note import Note
 
-#TODO: refresh is called reactively so when there is a read or write
 
 class Vault():
     def __init__(self,root_folder):
