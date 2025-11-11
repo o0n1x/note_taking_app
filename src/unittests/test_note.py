@@ -16,8 +16,7 @@ class TestNote(unittest.TestCase):
     def test_get_formatted_md(self):
         md = "test"
         note = Note(md)
-        rslt = f"""
----
+        rslt = f"""---
 title: Untitled Note
 tags: []
 created: {datetime.now().replace(microsecond=0)}
